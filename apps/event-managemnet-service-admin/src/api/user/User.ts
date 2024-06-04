@@ -7,6 +7,7 @@ export type User = {
   id: string;
   lastName: string | null;
   roles: JsonValue;
+  supertokensId: string | null;
   updatedAt: Date;
   username: string;
 };
