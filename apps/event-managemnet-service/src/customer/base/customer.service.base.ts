@@ -59,4 +59,7 @@ export class CustomerServiceBase {
       })
       .events(args);
   }
+  async ArchiveCustomer(args: string): Promise<string> {
+    throw new Error("Not implemented");
+  }
 }

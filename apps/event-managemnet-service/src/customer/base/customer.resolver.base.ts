@@ -163,4 +163,12 @@ export class CustomerResolverBase {
 
     return results;
   }
+
+  @graphql.Query(() => String)
+  async ArchiveCustomer(
+    @graphql.Args()
+    args: string
+  ): Promise<string> {
+    return this.service.ArchiveCustomer(args);
+  }
 }
