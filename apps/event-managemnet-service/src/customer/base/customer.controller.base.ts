@@ -298,4 +298,21 @@ export class CustomerControllerBase {
       select: { id: true },
     });
   }
+
+  @common.Get("/:id/archive-customer")
+  @swagger.ApiOkResponse({
+    type: String,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async ArchiveCustomer(
+    @common.Body()
+    body: string
+  ): Promise<string> {
+    return this.service.ArchiveCustomer(body);
+  }
 }
