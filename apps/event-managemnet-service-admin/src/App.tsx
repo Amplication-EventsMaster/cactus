@@ -5,6 +5,9 @@ import { theme } from "./theme/theme";
 import Login from "./Login";
 import "./App.scss";
 import Dashboard from "./pages/Dashboard";
+import { supertokensAuthProvider } from "./auth-provider/ra-auth-supertokens";
+import SuperTokens from "supertokens-web-js";
+import { SuperTokensConfig } from "./config";
 import { UserList } from "./user/UserList";
 import { UserCreate } from "./user/UserCreate";
 import { UserEdit } from "./user/UserEdit";
@@ -17,7 +20,8 @@ import { EventList } from "./event/EventList";
 import { EventCreate } from "./event/EventCreate";
 import { EventEdit } from "./event/EventEdit";
 import { EventShow } from "./event/EventShow";
-import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
+
+SuperTokens.init(SuperTokensConfig);
 
 const App = (): React.ReactElement => {
   const [dataProvider, setDataProvider] = useState<DataProvider | null>(null);
@@ -38,7 +42,7 @@ const App = (): React.ReactElement => {
       <Admin
         title={"event managemnet service"}
         dataProvider={dataProvider}
-        authProvider={jwtAuthProvider}
+        authProvider={supertokensAuthProvider}
         theme={theme}
         dashboard={Dashboard}
         loginPage={Login}

@@ -6,5 +6,6 @@ export type UserCreateInput = {
   lastName?: string | null;
   password: string;
   roles: InputJsonValue;
+  supertokensId?: string | null;
   username: string;
 };
